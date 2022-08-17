@@ -35,7 +35,7 @@ class LoginController extends BaseController
                 "token" => $token 
             ];
    
-            return $this->sendResponse($success, 'User login successfully.');
+            return $this->sendResponse( 'User login successfully.', $success);
         } 
         else{ 
             return $this->sendError('Unauthorised.', ['error'=>'email or password was incorrect'], 403);

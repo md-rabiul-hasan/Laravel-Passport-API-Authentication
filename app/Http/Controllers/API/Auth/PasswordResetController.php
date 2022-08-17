@@ -37,7 +37,7 @@ class PasswordResetController extends BaseController
                 "token" => $token 
             ];
    
-            return $this->sendResponse($success, 'User Password Reset successfully.');
+            return $this->sendResponse('User Password Reset successfully.', $success);
 
 
         }else{

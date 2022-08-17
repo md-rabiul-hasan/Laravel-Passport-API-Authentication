@@ -4,6 +4,7 @@ use App\Http\Controllers\API\Auth\ForgetPasswordController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\PasswordResetController;
 use App\Http\Controllers\API\Auth\RegistrationController;
+use App\Http\Controllers\API\Auth\UserInformationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('login', [LoginController::class, 'login']);
         Route::post('forget-password', [ForgetPasswordController::class, 'forgetPassword']);
         Route::post('reset-password/{token}', [PasswordResetController::class, 'passwordReset']);
+        Route::get('user-info', [UserInformationController::class, 'userInfo'])->middleware('auth:api');
     });
 
 });
