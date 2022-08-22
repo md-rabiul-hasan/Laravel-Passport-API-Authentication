@@ -69,7 +69,7 @@ class ForgetPasswordController extends BaseController
         $details = [
             'email' => $email,
             'subject' => 'Password Reset',
-            'url' => asset("/api/v1/auth/reset-password/$token")
+            'url' => "http://localhost:3000/reset-password/$token"
         ];
         dispatch(new PasswordResetMailSendJob($details));
     }

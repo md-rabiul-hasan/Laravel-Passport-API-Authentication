@@ -10,12 +10,14 @@ use App\Http\Controllers\API\BaseController;
 
 class RegistrationController extends BaseController
 {
+	
     /**
      * Register api
      *
      * @return \Illuminate\Http\Response
      */
     public function registration(Request $request){
+		
         $validator = Validator::make($request->all(), [
             'name'       => 'required',
             'email'      => 'required|email',
@@ -32,6 +34,8 @@ class RegistrationController extends BaseController
             'email'    => $request->input('email'),
             'password' => bcrypt($request->input('password')),
         ]);
+		
+		
 
         $token = $user->createToken($user->name)->accessToken;
 

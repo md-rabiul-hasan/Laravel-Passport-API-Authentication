@@ -23,7 +23,7 @@ class LoginController extends BaseController
         ]);
    
         if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
+            return $this->sendError( $validator->errors()->first(), $validator->errors());       
         }
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
